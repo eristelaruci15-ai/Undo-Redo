@@ -23,7 +23,44 @@ Funksioni Redo rikthen veprimin e fundit të zhbërë.
 
 ## Si ta ekzekutosh
 
+
 ```
 javac -d out Action.java StepTest.java UndoRedoManager.java
 java -cp out StepTest
+```
+
+Pika Y: Undo
+
+Funksioni Undo zhbën veprimin e fundit të kryer në dokument dhe rikthen gjendjen e tij përpara këtij veprimi.
+
+Ndryshimet
+
+UndoRedoManager.java: shtohet metoda undo(StringBuilder doc). Merr veprimin e fundit nga undoStack, e zhbën mbi dokument nëpërmjet metodës reverse() dhe e kalon në redoStack me pushRedo. Kthen veprimin e zhbërë, ose null kur nuk ka veprime për t'u zhbërë.
+
+StepTest.java: shtohen teste për funksionalitetin Undo:
+
+Undo me histori bosh
+
+Undo pas një veprimi të kryer
+
+Kontrolli i gjendjes së dokumentit pas Undo
+
+Kalimi i veprimit nga undoStack në redoStack
+
+Dy Undo njëri pas tjetrit
+
+Undo kur historia është bosh
+
+Implementohet logjika për të ruajtur përputhshmërinë me funksionalitetin Redo.
+
+Rezultati i testeve
+
+Testet verifikojnë që veprimet zhbëhen në rendin e duhur, dokumenti rikthehet në gjendjen e mëparshme dhe historia e veprimeve përditësohet saktë.
+
+Si ta ekzekutosh
+
+```
+javac -d out Action.java StepTest.java UndoRedoManager.java
+java -cp out StepTest
+
 ```
